@@ -12,9 +12,7 @@ keys =  ['value', 'name', 'category', 'class',
     'numeric_value', 'mirrored', 'unicode_name', 'comment', 'uppercase_mapping',
     'lowercase_mapping', 'titlecase_mapping'],
 systemfiles = [
-    "/usr/share/unicode/UnicodeData.txt", // debian
-    "/usr/share/unicode-data/UnicodeData.txt", // gentoo
-    process.env.NODE_UNICODETABLE_UNICODEDATA_TXT || "UnicodeData.txt", // manually downloaded
+    process.env.NODE_UNICODETABLE_UNICODEDATA_TXT || path.join(__dirname, "UnicodeData.txt")
 ],
 unicodedatafile = {
     host: "unicode.org",
@@ -179,4 +177,3 @@ if (!module.parent) { // not required
         download_file:download_file,
     };
 }
-
